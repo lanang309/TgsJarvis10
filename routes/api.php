@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PerkenalanController;
+use App\Http\Controllers\PustakawanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Route untuk menampilkan data Perkenalan
 Route::get('/dirisendiri', [PerkenalanController::class, 'perkenalan']);
+
+//Get all resources
+Route::get('/pustakawan', [PustakawanController::class, 'index']);
