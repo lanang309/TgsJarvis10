@@ -26,4 +26,39 @@ class PustakawanController extends Controller
             'data' => $pustakawan,
         ], 200);
     }
+
+    function pegawai(Request $request)
+    {
+        $created = Pustakawan::create([
+            'name' => $request->name,
+            'addres' => $request->addres,
+            'age' => $request->age,
+            'working_date' => $request->working_date
+        ]);
+
+        return response()->json([
+            'message' => 'Resource created succesfuly',
+            'status' => 201,
+            'data' => $created,
+        ], 201);
+    }
+
+    function show($id){
+        $pustakawan = Pustakawan::find($id);
+
+        //jika id tidak ditemukan
+        if(!$pustakawan){
+            return response()->json([
+                'message' => 'Resource not found',
+                'status' => 404,
+            ], 404);
+        }
+
+        //return pustakawan resource
+        return response()->json([
+            'message' => 'Get detail resource',
+            'status' => 200,
+            'data' => $pustakawan
+        ], 200);
+    }
 }

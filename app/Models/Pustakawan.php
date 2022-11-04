@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Pustakawan extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name', 'addres', 'age', 'working_date'];
 }

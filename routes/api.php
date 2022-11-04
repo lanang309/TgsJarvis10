@@ -25,3 +25,9 @@ Route::get('/dirisendiri', [PerkenalanController::class, 'perkenalan']);
 
 //Get all resources
 Route::get('/pustakawan', [PustakawanController::class, 'index']);
+
+//Post add resource
+Route::post('pustakawan', [PustakawanController::class, 'pegawai']);
+
+//Get data resource
+Route::get('/pustakawan/{id}', [PustakawanController::class, 'show']);
