@@ -61,4 +61,32 @@ class PustakawanController extends Controller
             'data' => $pustakawan
         ], 200);
     }
+
+    function update($id, Request $request){
+        //Menangkap id & data request body
+        $pustakawan = Pustakawan::find($id);
+
+        //jika id tidak ditemukan
+        if(!$pustakawan){
+            return response()->json([
+                'message' => 'Resource not found',
+                'status' => 404,
+            ], 404);
+        }
+
+        $updated = $pustakawan->update([
+            'name' => $request->name ?? $pustakawan->name,
+            'addres' => $request->addres ?? $pustakawan->addres,
+            'age' => $request->age ?? $pustakawan->age,
+            'working_date' => $request->working_date ?? $pustakawan->working_date
+        ]);
+
+        if($updated){
+            return response()->json([
+                'message' => 'Data updated succesfully',
+                'data' => $updated,
+                'status' => 200
+            ], 200);
+        }
+    }
 }

@@ -31,3 +31,6 @@ Route::post('pustakawan', [PustakawanController::class, 'pegawai']);
 
 //Get data resource
 Route::get('/pustakawan/{id}', [PustakawanController::class, 'show']);
+
+//Edit resources
+Route::put('/pustakawan/{id}', [PustakawanController::class, 'update']);
